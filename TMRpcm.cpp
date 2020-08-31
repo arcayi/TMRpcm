@@ -1606,14 +1606,22 @@ void TMRpcm::createWavTemplate(char* filename, unsigned int sampleRate){
   #endif
 
   #if defined (ENABLE_RECORDING)
+	#if !defined (SDFAT)
     SdVolume vol;
+	#else
+    FatVolume vol;
+	#endif
 	SdFile rut;
 	SdFile fil;
 
 	char* fNam = filename;
 	uint32_t bgnBlock, endBlock;
 
+	#if !defined (SDFAT)
 	if (!card1.init(SPI_FULL_SPEED,CSPin)) {
+	#else
+	if (!card1.begin(CSPin,SPI_FULL_SPEED)) {
+	#endif
 	    return;
   	}else{}//Serial.println("SD OK");}
 

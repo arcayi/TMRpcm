@@ -26,7 +26,7 @@ Blog: https://tmrh20.blogspot.com/
 
    Override the default size of the buffers (MAX 254). There are 2 buffers, so memory usage will be double this number
    Defaults to 64bytes for Uno etc. 254 for Mega etc. note: In multi mode there are 4 buffers*/
-//#define buffSize 128  //must be an even number
+#define buffSize 128  //must be an even number
 
   /* Uncomment to run the SD card at full speed (half speed is default for standard SD lib)*/
 #define SD_FULLSPEED
@@ -36,7 +36,8 @@ Blog: https://tmrh20.blogspot.com/
 
   /*Ethernet shield support etc. The library outputs on both timer pins, 9 and 10 on Uno by default. Uncommenting this
     will disable output on the 2nd timer pin and should allow it to function with shields etc that use Uno pin 10 (TIMER1 COMPB).*/
-//#define DISABLE_SPEAKER2
+#define DISABLE_SPEAKER2
+//arcayi： Uncomment this for LGT8f328p-ssop20 has multiplexing pin 10 for MOSI
 
   /* Use 8-bit TIMER2 - If using an UNO, Nano, etc and need TIMER1 for other things*/
 //#define USE_TIMER2
@@ -46,7 +47,7 @@ Blog: https://tmrh20.blogspot.com/
    See https://github.com/TMRh20/TMRpcm/wiki for info on usage
 
    /* Use the SDFAT library from http://code.google.com/p/sdfatlib/            */
-//#define SDFAT
+#define SDFAT
 
    /* MULTI Track mode currently allows playback of 2 tracks at once          */
 //#define ENABLE_MULTI  //Using separate pins on a single 16-bit timer
@@ -72,9 +73,9 @@ Blog: https://tmrh20.blogspot.com/
    Requires a class 4 card minimum, buffSize may need to be increased to 254 if audio is skipping etc.
    Depending on the card, can take a few seconds for recording to start
    																									*/
-//#define ENABLE_RECORDING
+#define ENABLE_RECORDING
 	// Amount of space to pre-allocate for recording
-//	#define BLOCK_COUNT 10000UL  // 10000 = 500MB   2000 = 100MB
+	#define BLOCK_COUNT 10000UL  // 10000 = 500MB   2000 = 100MB
 
 //*********************** Radio (NRF24L01+) Streaming *********************
 
